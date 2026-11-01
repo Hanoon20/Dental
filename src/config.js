@@ -2,7 +2,7 @@
 export const clinic = {
   name: 'Mishary Dental Care',
   tagline: 'Gentle care. Confident smiles.',
-  whatsappNumber: '', // International format, digits only: e.g. 947XXXXXXXX
+  whatsappNumber: '94716903578', // International format, digits only: e.g. 947XXXXXXXX
   phone: '',
   email: '',
   address: '',
