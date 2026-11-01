@@ -27,3 +27,20 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
 @keyframes booking-enter{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:780px){.navlinks>button{padding:14px 12px;border-bottom:1px solid #eff3ed}.navlinks .mobile-book{background:#174c43;color:white;padding:14px 12px}.booking-dialog{padding:10px;max-height:96dvh}.booking-glass{padding:32px 22px 24px;border-radius:22px}.booking-glass h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.scroll-reveal{opacity:1;transform:none}}
+
+/* Keep the glass surface clean while retaining wheel, touch and keyboard scrolling. */
+.booking-dialog{scrollbar-width:none;-ms-overflow-style:none;overflow-x:hidden}
+.booking-dialog::-webkit-scrollbar{display:none;width:0;height:0}
+@media(min-width:781px){
+  .booking-dialog{width:min(760px,calc(100% - 40px));max-height:calc(100dvh - 32px);padding:12px}
+  .booking-glass{padding:28px 34px}
+  .booking-glass .eyebrow{margin-bottom:10px}
+  .booking-glass h2{font-size:32px;margin-bottom:8px}
+  .booking-glass>p{margin-bottom:16px}
+  .booking-glass .booking-form{gap:12px}
+  .booking-glass .booking-form label{gap:6px;min-width:0}
+  .booking-glass .booking-form input,.booking-glass .booking-form select{padding:10px 12px;min-height:42px}
+  .booking-glass .booking-form textarea{min-height:64px;height:64px;padding:10px 12px}
+  .booking-glass .form-submit{min-height:46px;margin-top:2px}
+  .booking-glass .booking-test-note{margin-top:10px;margin-bottom:0}
+}
