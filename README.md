@@ -24,7 +24,7 @@ npm run build
 
 ## Customize before going live
 
-Edit `src/config.js` with real clinic details and a WhatsApp Business number in international digits-only format (for example `947XXXXXXXX`). **No WhatsApp number is currently configured**, so booking submissions display a demo notice and are not sent. Change the demo disclaimer/footer when converting this project to a real website, but only after verifying all claims, services and clinical information.
+Edit `src/config.js` with real clinic details and a WhatsApp Business number in international digits-only format (for example `947XXXXXXXX`). **A test WhatsApp number is configured**. Booking submissions open a WhatsApp message draft addressed to the test number; the user must send it. Replace it with the clinic's approved number before launch. Change the demo disclaimer/footer when converting this project to a real website, but only after verifying all claims, services and clinical information.
 
 The current brand is a temporary typographic logo. Replace `Brand()` in `src/main.jsx` with the clinic's approved logo later. Replace the remote stock photography with licensed clinic images before public launch. Treat all site copy as demonstration content — no real dentist credentials, clinic address, reviews, outcomes or patient count have been claimed.
 
