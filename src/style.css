@@ -44,3 +44,112 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   .booking-glass .form-submit{min-height:46px;margin-top:2px}
   .booking-glass .booking-test-note{margin-top:10px;margin-bottom:0}
 }
+
+/* Keep the full 16:9 photo visible across the homepage hero. */
+.hero {
+  background: #17231f;
+}
+
+.hero-layout {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+
+.hero-photo {
+  grid-area: 1 / 1;
+  margin: 0;
+  min-height: 0;
+  align-self: start;
+}
+
+.hero-photo > img {
+  position: static;
+  height: auto;
+  filter: contrast(1.04) saturate(1.04);
+}
+
+.hero-photo::after {
+  background: linear-gradient(90deg, rgb(0 0 0 / 69%), rgb(0 0 0 / 57%) 34%, rgb(0 0 0 / 20%) 58%, transparent 76%);
+}
+
+.hero-left {
+  grid-area: 1 / 1;
+  z-index: 3;
+  width: min(1180px, calc(100% - 88px));
+  margin: 0 auto;
+  padding: clamp(44px, 6vw, 100px) 0;
+  pointer-events: none;
+}
+
+.hero-left :is(a, button) {
+  pointer-events: auto;
+}
+
+.hero h1,
+.hero-left > p,
+.hero-left .text-link,
+.hero-points > span {
+  color: #fff;
+}
+
+.hero h1 em,
+.hero .eyebrow,
+.hero-points svg,
+.hero-spark {
+  color: #c9efda;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 5.5vw, 79px);
+}
+
+.hero-left > p {
+  max-width: min(410px, 43vw);
+}
+
+.hero-points {
+  margin-top: clamp(24px, 4vw, 60px);
+}
+
+.hero-floating {
+  left: auto;
+  right: clamp(24px, 4vw, 65px);
+  bottom: clamp(24px, 4vw, 65px);
+  width: min(330px, 38%);
+}
+
+@media (max-width: 960px) {
+  .hero-photo {
+    grid-area: 1 / 1;
+  }
+
+  .hero-photo::after {
+    background: linear-gradient(90deg, rgb(0 0 0 / 35%), transparent 68%);
+  }
+
+  .hero-left {
+    grid-area: 2 / 1;
+    width: calc(100% - 36px);
+    padding: 34px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 66px);
+  }
+
+  .hero-spark {
+    right: auto;
+    margin-left: 10px;
+  }
+
+  .hero-left > p {
+    max-width: 435px;
+  }
+
+  .hero-floating {
+    right: 16px;
+    bottom: 14px;
+    width: min(305px, calc(100% - 32px));
+  }
+}
