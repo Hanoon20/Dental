@@ -45,7 +45,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   .booking-glass .booking-test-note{margin-top:10px;margin-bottom:0}
 }
 
-/* Keep the full 16:9 photo visible across the homepage hero. */
+/* Keep the full photo visible while adapting the copy to the viewport. */
 .hero {
   background: #17231f;
 }
@@ -66,11 +66,13 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
 .hero-photo > img {
   position: static;
   height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   filter: contrast(1.04) saturate(1.04);
 }
 
 .hero-photo::after {
-  background: linear-gradient(90deg, rgb(0 0 0 / 69%), rgb(0 0 0 / 57%) 34%, rgb(0 0 0 / 20%) 58%, transparent 76%);
+  background: linear-gradient(90deg, #000b, #0009 36%, #0004 58%, transparent 76%);
 }
 
 .hero-left {
@@ -78,7 +80,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   z-index: 3;
   width: min(1180px, calc(100% - 88px));
   margin: 0 auto;
-  padding: clamp(44px, 6vw, 100px) 0;
+  padding: clamp(24px, 4vw, 64px) 0;
   pointer-events: none;
 }
 
@@ -86,11 +88,15 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   pointer-events: auto;
 }
 
-.hero h1,
-.hero-left > p,
-.hero-left .text-link,
-.hero-points > span {
+.hero .eyebrow {
+  margin-bottom: clamp(12px, 1.6vw, 24px);
+  line-height: 1.5;
+}
+
+.hero h1 {
   color: #fff;
+  font-size: clamp(44px, 5.35vw, 79px);
+  margin-bottom: clamp(12px, 1.6vw, 24px);
 }
 
 .hero h1 em,
@@ -100,56 +106,121 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   color: #c9efda;
 }
 
-.hero h1 {
-  font-size: clamp(48px, 5.5vw, 79px);
+.hero-spark {
+  position: static;
+  display: inline-block;
+  margin-left: 10px;
+  font-size: .37em;
+  vertical-align: .17em;
 }
 
 .hero-left > p {
-  max-width: min(410px, 43vw);
+  color: #f1f6f3;
+  max-width: min(420px, 43vw);
+  line-height: 1.65;
+  margin-bottom: clamp(16px, 2vw, 28px);
+}
+
+.hero-buttons {
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.hero-buttons .btn {
+  background: #e7f4e8;
+  border-color: #e7f4e8;
+  color: #174c43;
+}
+
+.hero-buttons .btn:hover {
+  background: #fff;
+}
+
+.hero-buttons .text-link {
+  color: #fff;
+  min-height: 44px;
+}
+
+.hero-buttons .text-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hero-buttons :focus-visible {
+  outline: 2px solid #c9efda;
+  outline-offset: 4px;
 }
 
 .hero-points {
-  margin-top: clamp(24px, 4vw, 60px);
+  flex-wrap: wrap;
+  gap: 10px clamp(14px, 1.6vw, 26px);
+  margin-top: clamp(18px, 2.5vw, 38px);
+}
+
+.hero-points > span {
+  color: #edf6f0;
 }
 
 .hero-floating {
   left: auto;
   right: clamp(24px, 4vw, 65px);
   bottom: clamp(24px, 4vw, 65px);
-  width: min(330px, 38%);
+  width: min(305px, 32%);
 }
 
-@media (max-width: 960px) {
-  .hero-photo {
-    grid-area: 1 / 1;
+@media (max-width: 1100px) {
+  .hero-floating,
+  .hero-photo-tag {
+    display: none;
   }
+}
 
+@media (max-width: 850px) {
   .hero-photo::after {
-    background: linear-gradient(90deg, rgb(0 0 0 / 35%), transparent 68%);
+    background: linear-gradient(90deg, #0004, transparent 65%),
+      linear-gradient(0deg, #17231f, transparent 38%);
   }
 
   .hero-left {
     grid-area: 2 / 1;
-    width: calc(100% - 36px);
-    padding: 34px 0 40px;
+    width: min(560px, calc(100% - 36px));
+    padding: 12px 0 36px;
+    align-items: center;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: clamp(36px, 8vw, 66px);
-  }
-
-  .hero-spark {
-    right: auto;
-    margin-left: 10px;
+    font-size: clamp(36px, 8vw, 58px);
   }
 
   .hero-left > p {
-    max-width: 435px;
+    max-width: 420px;
   }
 
-  .hero-floating {
-    right: 16px;
-    bottom: 14px;
-    width: min(305px, calc(100% - 32px));
+  .hero-buttons,
+  .hero-points {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .eyebrow {
+    gap: 8px;
+    letter-spacing: 1.35px;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    max-width: 340px;
+    gap: 2px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .hero-points svg {
+    width: 17px;
+    height: 17px;
   }
 }
